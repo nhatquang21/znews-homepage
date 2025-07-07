@@ -1,5 +1,5 @@
 import MultimediaContent from "@/components/MultimediaContent";
-import { ICommonNews, ICommonNewsWithDesc } from "@/types/common";
+import { ICommonNews } from "@/types/common";
 import Box from "@mui/material/Box";
 
 const TABS = ["VIDEO", "PODCAST", "LONGFORM", "STORY", "QUIZZ"];
@@ -12,7 +12,7 @@ export default async function MultimediaSection() {
   const mainIdx = Math.floor(Math.random() * 5);
   const mainItem = data[mainIdx];
 
-  const main: ICommonNewsWithDesc = {
+  const main: ICommonNews = {
     ...mainItem,
     desc: "Newsfeed Rate tuần này đánh giá cao váy cưới hiện đại của Diệp Lê, thiết kế trong suốt khoe vòng một của Tâm Tít và tạo hình cổ trang của Tuyết Mai.",
   };

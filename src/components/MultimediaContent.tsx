@@ -1,11 +1,11 @@
 import { Box, Grid, Typography, Tabs, Tab } from "@mui/material";
 import MultimediaMainCard from "./MultimediaMainCard";
 import MultimediaSideCard from "./MultimediaSideCard";
-import { ICommonNews, ICommonNewsWithDesc } from "@/types/common";
+import { ICommonNews } from "@/types/common";
 import { fontSizes } from "@/themes/theme.config";
 
 interface Props {
-  main: ICommonNewsWithDesc;
+  main: ICommonNews;
   side: ICommonNews[];
   tabs: string[];
 }

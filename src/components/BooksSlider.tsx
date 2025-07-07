@@ -6,12 +6,12 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Link from "next/link";
 import { ICommonNews } from "@/types/common";
 import { fontSizes } from "@/themes/theme.config";
 import Divider from "@mui/material/Divider";
+import Image from "next/image";
 
 interface Props {
   books: ICommonNews[];
@@ -47,10 +47,17 @@ export default function BooksSlider({ books }: Props) {
   };
 
   return (
-    <Box sx={{ position: "relative", width: "100%", my: 3, display: {
-      xs: "none",
-      sm: "block"
-    } }}>
+    <Box
+      sx={{
+        position: "relative",
+        width: "100%",
+        my: 3,
+        display: {
+          xs: "none",
+          sm: "block",
+        },
+      }}
+    >
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Typography
           variant="h6"
@@ -86,18 +93,19 @@ export default function BooksSlider({ books }: Props) {
           sx={{
             ...iconBtnSx,
             left: 0,
-            transform: "translate(-50%, -50%)", 
-            cursor: !canPrev ? "not-allowed" : "pointer"
+            transform: "translate(-50%, -50%)",
+            cursor: !canPrev ? "not-allowed" : "pointer",
           }}
         >
-          <ArrowBackIosNewIcon sx={{ fontSize: fontSizes[4], color: canPrev ? "#333" : "#bbb" }} />
+          <ArrowBackIosNewIcon
+            sx={{ fontSize: fontSizes[4], color: canPrev ? "#333" : "#bbb" }}
+          />
         </IconButton>
 
         <Box
           sx={{
             overflow: "hidden",
             flex: 1,
-          
           }}
         >
           <Box
@@ -107,7 +115,7 @@ export default function BooksSlider({ books }: Props) {
               transition: "transform 0.4s cubic-bezier(.4,0,.2,1)",
               transform: `translateX(-${start * (CARD_WIDTH + GAP)}px)`,
               willChange: "transform",
-              minWidth: `${VISIBLE * (CARD_WIDTH + GAP)}px`, 
+              minWidth: `${VISIBLE * (CARD_WIDTH + GAP)}px`,
             }}
           >
             {books.map((book) => (
@@ -120,27 +128,39 @@ export default function BooksSlider({ books }: Props) {
                   border: "1px solid #eee",
                   boxShadow: "none",
                   overflow: "hidden",
-                
+                  cursor: "default",
+                  pointerEvents: "none",
                 }}
               >
                 <Link href={`/${book.slug}`} style={{ textDecoration: "none" }}>
-                  <CardMedia
-                    component="img"
-                    image={book.image}
-                    alt={book.title}
-                    sx={{ height: 120, objectFit: "cover" }}
-                  />
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: 220,
+                      height: 130,
+                      flexShrink: 0,
+                      cursor: "pointer",
+                      pointerEvents: "auto",
+                    }}
+                  >
+                    <Image
+                      src={book.image}
+                      alt={book.title}
+                      fill
+                      style={{
+                        objectFit: "cover",
+                        borderRadius: 0,
+                      }}
+                    />
+                  </Box>
                   <CardContent sx={{ p: 1.5 }}>
                     <Typography
-                      variant="body2"
+                      variant="h6"
+                      className="highlight-title"
                       sx={{
-                        color: "#222",
                         fontWeight: 600,
                         fontSize: fontSizes[2],
                         lineHeight: 1.3,
-                        "&:hover": {
-                          color: "var(--hover-title)",
-                        },
                       }}
                     >
                       {book.title}
@@ -158,11 +178,13 @@ export default function BooksSlider({ books }: Props) {
           sx={{
             ...iconBtnSx,
             right: 0,
-            transform: "translate(50%, -50%)", 
-            cursor: !canNext ? "not-allowed" : "pointer"
+            transform: "translate(50%, -50%)",
+            cursor: !canNext ? "not-allowed" : "pointer",
           }}
         >
-          <ArrowForwardIosIcon sx={{ fontSize: fontSizes[4], color: canNext ? "#333" : "#bbb" }} />
+          <ArrowForwardIosIcon
+            sx={{ fontSize: fontSizes[4], color: canNext ? "#333" : "#bbb" }}
+          />
         </IconButton>
       </Box>
     </Box>

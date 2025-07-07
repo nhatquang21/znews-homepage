@@ -7,7 +7,7 @@ import { fontSizes } from "@/themes/theme.config";
 
 export default function MultimediaSideCard({ item }: { item: ICommonNews }) {
   return (
-    <>
+    <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
       <Box
         sx={{
           position: "relative",
@@ -17,17 +17,15 @@ export default function MultimediaSideCard({ item }: { item: ICommonNews }) {
           mb: 2,
         }}
       >
-        <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </Link>
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          style={{ objectFit: "cover" }}
+        />
       </Box>
 
-      <div style={{ display: "inline"}}>
+      <div style={{ display: "inline" }}>
         <InsertPhotoIcon
           sx={{
             opacity: 0.6,
@@ -35,27 +33,23 @@ export default function MultimediaSideCard({ item }: { item: ICommonNews }) {
             fontSize: fontSizes[4],
             cursor: "default",
             verticalAlign: "top",
-            
           }}
         />
-        <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
+       
           <Typography
             variant="subtitle1"
             sx={{
-              color: "#222",
               fontWeight: 700,
               display: "inline",
               lineHeight: 1.2,
-              "&:hover": {
-                color: "var(--hover-title)",
-              },
+             
               verticalAlign: "top",
             }}
           >
             {item.title}
           </Typography>
-        </Link>
+        
       </div>
-    </>
+    </Link>
   );
 }

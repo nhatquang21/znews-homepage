@@ -44,7 +44,7 @@ export async function GET() {
     },
     {
         title: "lorem ipsum dolor sit amet consectetur 123 elit. Quisquam, quos.",
-        image: "	https://photo.znews.vn/w210/Uploaded/qoswae/2025_07_06/02eab535fa024100a194c28994f8d5ee.jpg",
+        image: "https://photo.znews.vn/w210/Uploaded/qoswae/2025_07_06/02eab535fa024100a194c28994f8d5ee.jpg",
         slug: "lorem-ipsum-dolor-sit-amet-consectetur-123-elit-quisquam-quos",
     }
   ]);

@@ -7,7 +7,7 @@ import { fontSizes } from "@/themes/theme.config";
 
 export default function TopNewsMain({ main }: { main: ITopNewsMain }) {
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box sx={{ mb: 2, cursor: "default", pointerEvents: "none" }}>
       <Link href={`/${main.slug}`} style={{ textDecoration: "none" }}>
         <Image
           src={main.image}
@@ -19,6 +19,8 @@ export default function TopNewsMain({ main }: { main: ITopNewsMain }) {
             width: "100%",
             height: "auto",
             maxHeight: 400,
+            cursor: "pointer",
+            pointerEvents: "auto",
           }}
         />
         <Typography
@@ -26,69 +28,70 @@ export default function TopNewsMain({ main }: { main: ITopNewsMain }) {
           sx={{
             fontWeight: 700,
             mt: 2,
-            color: "#222",
             fontSize: {
               xs: fontSizes[5],
               sm: fontSizes[7],
             },
             lineHeight: 1.2,
-            "&:hover": {
-              color: "var(--hover-title)",
-            },
+            cursor: "pointer",
+            pointerEvents: "auto",
           }}
         >
           {main.title}
         </Typography>
-      </Link>
 
-      <Typography
-        variant="body1"
-        sx={{
-          color: "#444",
-          mt: 1,
-          fontSize: fontSizes[1],
-          lineHeight: 1.5,
-          display: { xs: "none", sm: "block" },
-        }}
-      >
-        {main.desc}
-      </Typography>
-      {main.bullet && (
-        <Box
+        <Typography
+          variant="body1"
           sx={{
+            mt: 1,
+            color: "#444",
+            fontSize: fontSizes[1],
+            lineHeight: 1.5,
             display: { xs: "none", sm: "block" },
           }}
         >
-          <ul style={{ marginTop: 8, paddingLeft: 18, listStyleType: "disc" }}>
-            {main.bullet.map((b, i) => (
-              <li
-                key={i}
-                style={{ fontWeight: "bold", fontSize: fontSizes[2] }}
-              >
-                <Link href={`/${b.slug}`} style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 700,
-                      color: "#222",
-                      mt: { xs: 1, sm: 0 },
-                      fontSize: { xs: fontSizes[1], sm: fontSizes[2] },
-                      lineHeight: 1.4,
-                      alignSelf: "flex-start",
-                      transition: "color 0.2s",
-                      "&:hover": {
-                        color: "var(--hover-title)",
-                      },
-                    }}
-                  >
-                    {b.title}
-                  </Typography>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Box>
-      )}
+          {main.desc}
+        </Typography>
+        </Link>
+        {main.bullet && (
+          <Box
+            sx={{
+              display: { xs: "none", sm: "block" },
+              cursor: "default",
+              pointerEvents: "none",
+            }}
+          >
+            <ul
+              style={{ marginTop: 8, paddingLeft: 18, listStyleType: "disc" }}
+            >
+              {main.bullet.map((b, i) => (
+                <li
+                  key={i}
+                  style={{ fontWeight: "bold", fontSize: fontSizes[2] }}
+                >
+                  <Link href={`/${b.slug}`} style={{ textDecoration: "none" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 700,
+                        mt: { xs: 1, sm: 0 },
+                        fontSize: { xs: fontSizes[1], sm: fontSizes[2] },
+                        lineHeight: 1.4,
+                        alignSelf: "flex-start",
+                        transition: "color 0.2s",
+                        cursor: "pointer",
+                        pointerEvents: "auto",
+                      }}
+                    >
+                      {b.title}
+                    </Typography>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Box>
+        )}
+     
     </Box>
   );
 }

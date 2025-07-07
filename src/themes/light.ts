@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-
+import { overrides } from "./overrides";
 
 const zNewsTypography = {
   fontFamily: 'var(--font-body)',
@@ -14,7 +14,10 @@ const baseTheme = createTheme({
 
 const zNewsTheme = createTheme({
   ...baseTheme,
-  
+  components: {
+    ...baseTheme.components,
+    ...overrides(baseTheme),
+  },
 });
 
 export default zNewsTheme;

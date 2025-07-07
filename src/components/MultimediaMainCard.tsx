@@ -1,64 +1,76 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { ICommonNewsWithDesc } from "@/types/common";
+import { ICommonNews } from "@/types/common";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import { fontSizes } from "@/themes/theme.config";
 
-export default function MultimediaMainCard({
-  item,
-}: {
-  item: ICommonNewsWithDesc;
-}) {
+export default function MultimediaMainCard({ item }: { item: ICommonNews }) {
   return (
-    <>
-      <Box
-        sx={{
-          position: "relative",
-          width: "100%",
-          aspectRatio: "16/11",
-          overflow: "hidden",
-          mb: 2,
-        }}
-      >
-        <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
+    <Box
+      sx={{
+        "&:hover .highlight-title": {
+          color: "var(--hover-title)",
+        },
+        cursor: "default",
+        pointerEvents: "none",
+      }}
+    >
+      <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
+        <Box
+          sx={{
+            position: "relative",
+            width: "100%",
+            aspectRatio: "16/11",
+            overflow: "hidden",
+            mb: 2,
+            cursor: "pointer",
+            pointerEvents: "auto",
+          }}
+        >
           <Image
             src={item.image}
             alt={item.title}
             fill
             style={{ objectFit: "cover" }}
           />
-        </Link>
-      </Box>
+        </Box>
 
-      <div style={{ display: "inline" }}>
-        <InsertPhotoIcon
-          sx={{ opacity: 0.6, mr: 1, fontSize: fontSizes[6], mt: 1 }}
-        />
-        <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
+        <Box sx={{ display: "inline", cursor: "default", pointerEvents: "none" }}>
+          
+          <InsertPhotoIcon
+            sx={{
+              opacity: 0.6,
+              mr: 1,
+              fontSize: fontSizes[6],
+              mt: 1,
+            }}
+            
+          />
+          
           <Typography
             variant="h5"
+            className="highlight-title"
             sx={{
               fontWeight: 700,
               color: "#222",
               mb: 1,
               display: "inline",
               alignItems: "center",
-              "&:hover": {
-                color: "var(--hover-title)",
-              },
+              cursor: "pointer",
+              pointerEvents: "auto",
               verticalAlign: "top",
             }}
           >
             {item.title}
           </Typography>
-        </Link>
-      </div>
-      {item.desc && (
-        <Typography variant="body2" sx={{ color: "#444" }}>
-          {item.desc}
-        </Typography>
-      )}
-    </>
+        </Box>
+        {item.desc && (
+          <Typography variant="body2" sx={{ color: "#444" }}>
+            {item.desc}
+          </Typography>
+        )}
+      </Link>
+    </Box>
   );
 }

@@ -43,15 +43,14 @@ export default function TopNewsSide({ items }: { items: ICommonNews[] }) {
               </Box>
               <Typography
                 variant="body2"
+                className="highlight-title"
                 sx={{
-                  color: "#222",
+                  
                   fontWeight: 700,
                   fontSize: { xs: fontSizes[3], sm: fontSizes[2] },
                   lineHeight: 1.3,
                   mt: 1,
-                  "&:hover": {
-                    color: "var(--hover-title)",
-                  },
+                 
                 }}
               >
                 {item.title}
