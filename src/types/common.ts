@@ -5,5 +5,7 @@ export interface ICommonNews {
   desc?: string;
   category?: string;
   isVideo?: boolean;
+  label?: string;
+  iconType?: string;
 }
 

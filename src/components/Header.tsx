@@ -105,18 +105,29 @@ export default function Header() {
         background: "#fff",
       }}
     >
-      <div id="menu" className="page-wrapper max-w-[1100px] mx-auto">
+      <div id="menu" className="max-w-[1100px] mx-auto px-4 sm:px-0">
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: {
+              xs: "flex-start",
+              md: "center",
+            },
             width: "100%",
           }}
         >
-          <div
+          <Box
             className="me-10"
-            style={{ position: "relative", height: "40px", width: "190px" }}
+            sx={{
+              position: "relative",
+              height: "40px",
+              display: {
+                xs: "none",
+                md: "block",
+              },
+              cursor: "pointer",
+            }}
           >
             <Image
               src="https://static.znews.vn/images/logo-znews-light-2.svg"
@@ -126,9 +137,14 @@ export default function Header() {
               style={{ height: "100%", width: "auto" }}
               alt="logo"
             />
-          </div>
+          </Box>
           {isMobile ? (
-            <>
+            <div
+              style={{
+                display: "flex",
+                flex: 1,
+              }}
+            >
               <IconButton
                 edge="start"
                 color="inherit"
@@ -137,7 +153,20 @@ export default function Header() {
               >
                 <MenuIcon />
               </IconButton>
-            </>
+              <div
+                className="me-10"
+                style={{ position: "relative", height: "40px", width: "130px" }}
+              >
+                <Image
+                  src="https://static.znews.vn/images/logo-znews-light-2.svg"
+                  fill
+                  style={{
+                    objectFit: "contain",
+                  }}
+                  alt="logo"
+                />
+              </div>
+            </div>
           ) : (
             <Box sx={{ flexGrow: 1, display: "flex", gap: 5 }}>
               {menuItems.map((item) => {
@@ -241,10 +270,22 @@ export default function Header() {
 
           <IconButton
             color="inherit"
-            sx={{ ml: 2, opacity: 0.8 }}
+            sx={{
+              ml: 2,
+              opacity: 0.8,
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
             disableRipple
           >
-            <SearchIcon fontSize="large" />
+            <SearchIcon
+              fontSize={isMobile ? "medium" : "large"}
+              sx={{
+                "&:hover": {
+                  fill: "var(--hover-title)",
+                },
+              }}
+            />
           </IconButton>
         </Box>
       </div>

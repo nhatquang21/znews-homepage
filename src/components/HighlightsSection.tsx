@@ -30,7 +30,12 @@ export default async function HighlightsSection() {
       spacing={4}
       sx={{
         my: 4,
+        display: {
+          xs: 'none',
+          md: 'flex'
+        }
       }}
+
     >
       <Grid
         size={{
