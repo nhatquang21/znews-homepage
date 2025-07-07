@@ -33,7 +33,7 @@ export default function MultimediaMainCard({
 
       <div style={{ display: "inline" }}>
         <InsertPhotoIcon
-          sx={{ opacity: 0.6, mr: 1, fontSize: fontSizes[7], mt: 1 }}
+          sx={{ opacity: 0.6, mr: 1, fontSize: fontSizes[6], mt: 1 }}
         />
         <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
           <Typography

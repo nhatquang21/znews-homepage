@@ -32,7 +32,7 @@ export default function MultimediaSideCard({ item }: { item: ICommonNews }) {
           sx={{
             opacity: 0.6,
             mr: 1,
-            fontSize: fontSizes[3],
+            fontSize: fontSizes[4],
             cursor: "default",
             verticalAlign: "top",
             

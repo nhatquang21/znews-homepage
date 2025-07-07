@@ -28,8 +28,8 @@ export default function TopNewsMain({ main }: { main: ITopNewsMain }) {
             mt: 2,
             color: "#222",
             fontSize: {
-              xs: fontSizes[7],
-              sm: fontSizes[9],
+              xs: fontSizes[5],
+              sm: fontSizes[7],
             },
             lineHeight: 1.2,
             "&:hover": {
