@@ -69,7 +69,7 @@ export default function CommonNewsCard({ item }: { item: ICommonNews }) {
         </Link>
       </Card>
 
-      <Box sx={{ borderBottom: 1, borderColor: "divider", mt: 2 }} />
+     
     </Grid>
   );
 }

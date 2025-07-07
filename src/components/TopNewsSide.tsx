@@ -5,7 +5,8 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { fontSizes } from "@/themes/theme.config";
 import { Divider, Grid } from "@mui/material";
-import { NewsCard } from "./NewsCard"; 
+import NewsCard from "./NewsCard"; 
+
 export default function TopNewsSide({ items }: { items: ICommonNews[] }) {
   return (
     <Grid
@@ -36,7 +37,6 @@ export default function TopNewsSide({ items }: { items: ICommonNews[] }) {
                   alt={item.title}
                   fill
                   style={{
-                    borderRadius: 6,
                     objectFit: "cover",
                   }}
                 />
@@ -47,7 +47,7 @@ export default function TopNewsSide({ items }: { items: ICommonNews[] }) {
                 sx={{
                   
                   fontWeight: 700,
-                  fontSize: { xs: fontSizes[3], sm: fontSizes[2] },
+                  fontSize: { xs: fontSizes[3], sm: fontSizes[3] },
                   lineHeight: 1.3,
                   mt: 1,
                  

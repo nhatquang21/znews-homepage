@@ -4,5 +4,6 @@ export interface ICommonNews {
   image: string;
   desc?: string;
   category?: string;
+  isVideo?: boolean;
 }
 

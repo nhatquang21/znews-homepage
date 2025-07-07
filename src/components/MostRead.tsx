@@ -46,7 +46,7 @@ export default function MostRead({ item }: { item: ICommonNews }) {
             }}
           />
         </Box>
-        <CardContent sx={{ p: 1, pl: 2, pb: '8px !important', pt: 0 }}>
+        <CardContent sx={{ p: 1, pl: 2, pb: '8px !important', pt: 0, flex: 1 }}>
           <Typography
             variant="caption"
             color="text.secondary"

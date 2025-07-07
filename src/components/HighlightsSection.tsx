@@ -1,5 +1,5 @@
 import { ICommonNews } from "@/types/common";
-import { Grid, List, Paper, Typography } from "@mui/material";
+import { Box, Grid, List, Paper, Typography } from "@mui/material";
 import CommonNewsCard from "./CommonNewsCard";
 import MostRead from "./MostRead";
 import Podcast from "./Podcast";
@@ -40,7 +40,10 @@ export default async function HighlightsSection() {
       >
         <Grid container direction="row" spacing={3}>
           {highlights.map((item: ICommonNews, idx: number) => (
-            <CommonNewsCard key={idx} item={item} />
+            <Grid key={idx}>
+            <CommonNewsCard item={item} />
+            <Box sx={{ borderBottom: 1, borderColor: "divider", mt: 2, display: highlights.length - 1  === idx ? 'none' : 'block' }} />
+            </Grid>
           ))}
         </Grid>
       </Grid>

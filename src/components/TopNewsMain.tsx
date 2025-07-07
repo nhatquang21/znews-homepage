@@ -45,7 +45,7 @@ export default function TopNewsMain({ main }: { main: ITopNewsMain }) {
           sx={{
             mt: 1,
             color: "#444",
-            fontSize: fontSizes[1],
+            fontSize: fontSizes[2],
             lineHeight: 1.5,
             display: { xs: "none", sm: "block" },
           }}

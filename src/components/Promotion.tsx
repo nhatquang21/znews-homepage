@@ -1,6 +1,6 @@
 import { fontSizes } from "@/themes/theme.config";
 import { ICommonNews } from "@/types/common";
-import { Box, CardContent, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 

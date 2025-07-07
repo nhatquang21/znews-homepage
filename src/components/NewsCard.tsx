@@ -1,63 +1,79 @@
 import { ICommonNews } from "@/types/common";
-import Link from "next/link";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { fontSizes } from "@/themes/theme.config";
+import Link from "next/link";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-export const NewsCard = ({ item }: { item: ICommonNews }) => {
+export default function NewsCard({ item, reverse = false }: { item: ICommonNews, reverse?: boolean }) {
   return (
-    <Link href={`/${item.slug}`} style={{ textDecoration: "none", flex: 1 }}>
+    <Link href={`/${item.slug}`} style={{ textDecoration: "none" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: reverse ? "row-reverse" : "row",
+        alignItems: "center",
+        gap: 2,
+        cursor: "pointer",
+
+      }}
+    >
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          gap: { xs: 1, sm: 1.5 },
-          alignItems: "flex-start",
-          p: { xs: 1, sm: 1 },
-          borderRadius: 2,
-          background: "#fff",
-          boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
-          mb: 0,
-          cursor: "default",
-          pointerEvents: "none",
+          position: "relative",
+          width: 120,
+          height: 80,
+          flexShrink: 0,
         }}
       >
-        <Box
-          sx={{
-            width: 120,
-            height: 80,
-            flexShrink: 0,
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={120}
+          height={80}
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            height: "100%",
           }}
-        >
-          <Image
-            src={item.image}
-            alt={item.title}
-            width={120}
-            height={80}
-            style={{
-              objectFit: "cover",
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </Box>
-
-        <Typography
-          variant="h6"
-          className="highlight-title"
-          sx={{
-            fontWeight: 700,
-
-            fontSize: fontSizes[3],
-            lineHeight: 1.4,
-            alignSelf: "flex-start",
-            transition: "color 0.2s",
-          }}
-        >
-          {item.title}
-        </Typography>
+        />
+         {item.isVideo && (
+    <Box
+      sx={{
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        width: 16,
+        height: 16,
+        background: "rgba(30, 100, 150, 0.85)", 
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderTopLeftRadius: 2,
+        zIndex: 2,
+      }}
+    >
+      <PlayArrowIcon sx={{ color: "#fff", fontSize: 20 }} />
+    </Box>
+  )}
       </Box>
-    </Link>
+
+      <Typography
+        variant="h6"
+        className="highlight-title"
+        sx={{
+          fontWeight: 700,
+          fontSize: fontSizes[2],
+          lineHeight: 1.4,
+          alignSelf: "flex-start",
+          transition: "color 0.2s",
+        }}
+      >
+        {item.title}
+      </Typography>
+    </Box>
+    </Link>   
   );
-};
+}
