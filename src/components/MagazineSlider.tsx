@@ -42,8 +42,8 @@ export default function MagazineSlider({ data }: { data: ICommonNews[] }) {
     ],
   };
 
-  // Tính toán canPrev/canNext
-  const slidesToShow = 4; // hoặc lấy từ settings/responsive
+  
+  const slidesToShow = 4; 
   const canPrev = current > 0;
   const canNext = current < data.length - slidesToShow;
 

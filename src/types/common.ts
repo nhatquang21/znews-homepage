@@ -9,3 +9,6 @@ export interface ICommonNews {
   iconType?: string;
 }
 
+export interface INewVideo extends ICommonNews {
+  videoUrl: string;
+}
