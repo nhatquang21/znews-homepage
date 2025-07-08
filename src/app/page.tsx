@@ -1,13 +1,14 @@
-import TopNewsLayout from "@/components/TopNewsLayout";
-import TrendingChips from "@/components/TrendingChips";
-import BooksSection from "@/components/BooksSection";
-import MultimediaSection from "@/components/MultimediaSection";
-import HighlightsSection from "@/components/HighlightsSection";
-import BusinessSection from "@/components/BusinessSection";
-import LifeStyleSection from "@/components/LifeStyleSection";
-import CategoriesSection from "@/components/CategoriesSection";
-import MagazineSection from "@/components/MagazineSection";
-import VideoSection from "@/components/VideoSection";
+import TopNewsLayout from "@/components/multimedia/TopNewsLayout";
+import TrendingChips from "@/components/common/TrendingChips";
+import BooksSection from "@/components/books/BooksSection";
+import MultimediaSection from "@/components/multimedia/MultimediaSection";
+import HighlightsSection from "@/components/highlights/HighlightsSection";
+import BusinessSection from "@/components/business/BusinessSection";
+import LifeStyleSection from "@/components/lifesStyle/LifeStyleSection";
+import CategoriesSection from "@/components/category/CategoriesSection";
+import MagazineSection from "@/components/magazine/MagazineSection";
+import VideoSection from "@/components/video/VideoSection";
+import MobileLayout from "@/components/common/MobileLayout";
 
 export default async function Home() {
   return (
@@ -16,6 +17,7 @@ export default async function Home() {
         <TrendingChips />
         <TopNewsLayout />
         <BooksSection />
+        <MobileLayout />
       </div>
       <div className="max-w-[1200px] mx-auto mt-1 px-4 sm:px-0">
         <MultimediaSection />

@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
 import { ITopNewsData } from "@/types/topNews";
-import TopNewsList from "./TopNewsList";
-import TopNewsMain from "./TopNewsMain";
-import TopNewsSide from "./TopNewsSide";
+import TopNewsList from "@/components/common/TopNewsList";
+import TopNewsMain from "@/components/common/TopNewsMain";
+import TopNewsSide from "@/components/common/TopNewsSide";
 
 export default async function TopNewsLayout() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/topNews`, {

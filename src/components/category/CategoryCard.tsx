@@ -4,7 +4,7 @@ import { Box, Divider, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
-import NewsCard from "./NewsCard";
+import NewsCard from "@/components/common/NewsCard";
 
 export default function CategoryCard({ item }: { item: ICategory }) {
   const mainNews = item.news[0];

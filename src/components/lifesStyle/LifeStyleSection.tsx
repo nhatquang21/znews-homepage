@@ -1,7 +1,7 @@
 import { Box, Typography, Divider, Grid } from "@mui/material";
-import TopNewsList from "./TopNewsList";
-import TopNewsMain from "./TopNewsMain";
-import TopNewsSide from "./TopNewsSide";
+import TopNewsList from "@/components/common/TopNewsList";
+import TopNewsMain from "@/components/common/TopNewsMain";
+import TopNewsSide from "@/components/common/TopNewsSide";
 
 import { ITopNewsMain } from "@/types/topNews";
 import { fontSizes } from "@/themes/theme.config";

@@ -1,6 +1,6 @@
 import { ICommonNews } from "@/types/common";
 import { Box, Grid, List, Paper, Typography } from "@mui/material";
-import CommonNewsCard from "./CommonNewsCard";
+import CommonNewsCard from "@/components/common/CommonNewsCard";
 import MostRead from "./MostRead";
 import Podcast from "./Podcast";
 import Promotion from "./Promotion";

@@ -1,7 +1,7 @@
 import { ICommonNews } from "@/types/common";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
-import NewsCard from "./NewsCard";
+import NewsCard from "@/components/common/NewsCard";
 
 export default function TopNewsList({
   items,

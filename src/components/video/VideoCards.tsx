@@ -1,6 +1,6 @@
 import { ICommonNews } from "@/types/common";
 import { Grid } from "@mui/material";
-import NewsCard from "./NewsCard";
+import NewsCard from "@/components/common/NewsCard";
 
 interface Props {
   items: ICommonNews[];

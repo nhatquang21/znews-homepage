@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { fontSizes } from "@/themes/theme.config";
 import { Divider, Grid } from "@mui/material";
-import NewsCard from "./NewsCard"; 
+import NewsCard from "@/components/common/NewsCard"; 
 
 export default function TopNewsSide({ items }: { items: ICommonNews[] }) {
   return (

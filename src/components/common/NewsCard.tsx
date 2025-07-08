@@ -1,5 +1,4 @@
 import { ICommonNews } from "@/types/common";
-
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
@@ -23,7 +22,6 @@ export default function NewsCard({
           alignItems: "center",
           gap: 2,
           cursor: "pointer",
-          
         }}
       >
         <Box
@@ -38,12 +36,14 @@ export default function NewsCard({
             src={item.image}
             alt={item.title}
             width={120}
-            height={80}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIUlEQVQoU2NkYGBg+M+ABQxkYGBg+M8wCjA0MDAwAAAwCw0A8QwA4wAAAABJRU5ErkJggg=="
             style={{
               objectFit: "cover",
               width: "100%",
               height: "100%",
             }}
+            height={80}
           />
           {item.isVideo && (
             <Box
@@ -78,21 +78,52 @@ export default function NewsCard({
           }}
         >
           {item.title}
-          {item.category && (
-            <Typography
-              variant="body2"
-              sx={{
-                fontSize: fontSizes[1],
-                "&:hover": {
-                  color: "black",
-                },
-                cursor: "default",
-                pointerEvents: "none",
-              }}
-            >
-              {item.category}
-            </Typography>
-          )}
+          <Box
+            sx={{
+              display: {
+                xs: "none",
+                md: "block",
+              },
+            }}
+          >
+            {item.category && (
+              <Typography
+                variant="body2"
+                sx={{
+                  fontSize: fontSizes[1],
+                  "&:hover": {
+                    color: "black",
+                  },
+                  cursor: "default",
+                  pointerEvents: "none",
+                }}
+              >
+                {item.category}
+              </Typography>
+            )}
+          </Box>
+          <Box
+            sx={{
+              display: {
+                xs: "block",
+                md: "none",
+              },
+            }}
+          >
+            {item.time && (
+              <Typography
+                variant="body2"
+                sx={{
+                  fontSize: fontSizes[1],
+
+                  cursor: "default",
+                  pointerEvents: "none",
+                }}
+              >
+                {item.time}
+              </Typography>
+            )}
+          </Box>
         </Typography>
       </Box>
     </Link>

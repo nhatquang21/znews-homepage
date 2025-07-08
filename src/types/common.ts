@@ -7,8 +7,8 @@ export interface ICommonNews {
   isVideo?: boolean;
   label?: string;
   iconType?: string;
+  videoUrl?: string;
+  time?: string;
 }
 
-export interface INewVideo extends ICommonNews {
-  videoUrl: string;
-}
+

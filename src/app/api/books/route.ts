@@ -6,6 +6,7 @@ export async function GET() {
       title: "Người đàn ông khiến nước Đức viết 7.000 bài nghiên cứu chuyên sâu",
       image: "https://photo.znews.vn/w210/Uploaded/dqmblcvo/2025_07_04/Ai_nghien_cuu_hoc_thuat.jpg",
       slug: "nguoi-dan-ong-duc",
+      desc: 'Diễn viên Lý Long Cơ cầm hoa, rơi nước mắt khi đến đón hôn thê Vương Thanh Hà ra tù.',
     },
     {
       title: "Khám phá 10 nghề cỏ vang danh Việt Nam tại góc đọc cuối tuần",
@@ -16,6 +17,7 @@ export async function GET() {
       title: "Làm thế nào để tìm được ước mơ của bản thân?",
       image: "https://photo.znews.vn/w210/Uploaded/bpcgpivp/2025_07_06/Thiet_ke_chua_co_ten_50_.png",
       slug: "tim-uoc-mo-ban-than",
+      desc: 'Diễn viên Lý Long Cơ cầm hoa, rơi nước mắt khi đến đón hôn thê Vương Thanh Hà ra tù.',
     },
     {
       title: "Điều cần làm trước khi quý nhân xuất hiện",

@@ -13,6 +13,7 @@ export default function Footer() {
           md: 0,
         },
         mt: 0,
+        mb: 4,
         border: "none",
       }}
     >

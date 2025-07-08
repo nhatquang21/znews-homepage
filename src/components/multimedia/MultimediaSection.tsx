@@ -1,4 +1,4 @@
-import MultimediaContent from "@/components/MultimediaContent";
+import MultimediaContent from "./MultimediaContent";
 import { ICommonNews } from "@/types/common";
 import Box from "@mui/material/Box";
 
