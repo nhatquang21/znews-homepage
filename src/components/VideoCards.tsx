@@ -7,7 +7,6 @@ interface Props {
 }
 
 export default function VideoCards({ items }: Props) {
-  console.log(items);
   return (
     <Grid
       container
@@ -16,8 +15,7 @@ export default function VideoCards({ items }: Props) {
         background: "rgb(235, 235, 235)",
         overflow: "auto",
         maxHeight: "600px",
-        py: 4,
-        px: 2,
+       p:2
       }}
     >
       {items.map((item) => (

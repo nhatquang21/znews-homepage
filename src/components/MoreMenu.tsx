@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Fade from "@mui/material/Fade";
+import { Divider, useMediaQuery } from "@mui/material";
+import Footer from "./Footer";
 
 const moreCategories = [
   [
@@ -13,7 +15,7 @@ const moreCategories = [
     "Tác giả",
     "Thế giới sách",
     "Cuốn sách tôi đọc",
-    "Nghiên cứu xuất bản",
+    "Nghiên cứu",
   ],
   ["Kinh doanh", "Sức khỏe", "Du lịch", "Văn hóa đọc", "Pháp luật"],
   ["Công nghệ", "Đời sống", "Giải trí", "Lifestyle", "Xã hội"],
@@ -36,7 +38,7 @@ export default function MoreMenu({
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
     <>
@@ -49,7 +51,7 @@ export default function MoreMenu({
             top: HEADER_HEIGHT, 
             left: 0,
             width: "100vw",
-            height: `calc(100vh - ${HEADER_HEIGHT}px)`,
+            height: isMobile ? '100vh' : `calc(100vh - ${HEADER_HEIGHT}px)`,
             bgcolor: "rgba(0,0,0,0.2)",
           }}
         />
@@ -58,10 +60,23 @@ export default function MoreMenu({
         <Box
           sx={{
             position: "fixed",
-            top: HEADER_HEIGHT,
+            top: {
+              xs: 35,
+              md: HEADER_HEIGHT,
+            },
+            
             left: 0,
             width: "100vw",
-            bgcolor: "#141329",
+            backgroundColor: {
+              xs: 'rgb(246, 246, 246)',
+              md: '#141329',
+            },
+            height: isMobile ? '100%' : 'auto',
+            py: {
+              xs: 4,
+              md: 0,
+            },
+           
             color: "#fff",
             zIndex: 1300,
           }}
@@ -71,7 +86,6 @@ export default function MoreMenu({
             sx={{
               position: "relative",
               p: 2,
-              height: "100%",
               maxWidth: 865,
               width: "100%",
               marginLeft: "auto",
@@ -82,18 +96,18 @@ export default function MoreMenu({
               sx={{
                 display: "grid",
                 gridTemplateColumns: { xs: "1fr 1fr", sm: "1fr 1fr 1fr 1fr" },
-                gap: {
+                gap: 2,
+                mt: {
                   xs: 4,
-                  sm: 2,
+                  md: 2,
                 },
-                mt: 2,
                 width: "100%",
                 justifyItems: {
                   xs: "center",
                   sm: "flex-start",
                 },
                 px: { xs: 2, sm: 0 },
-                py: { xs: 8, sm: 0 },
+                py: { xs: 4, sm: 0 },
               }}
             >
               {moreCategories.flat().map((cat) => (
@@ -102,8 +116,14 @@ export default function MoreMenu({
                   component={Link}
                   href={`/${cat.toLowerCase().replace(/\s/g, "-")}`}
                   sx={{
-                    color: "#DDDDDD",
-                    fontWeight: 600,
+                    color: {
+                      xs: '#444444',
+                      md: '#DDDDDD',
+                    },
+                    fontWeight: {
+                      xs: 400,
+                      md: 600,
+                    },
                     fontSize: fontSizes[3],
                     textDecoration: "none",
                     marginBottom: 2,
@@ -123,7 +143,7 @@ export default function MoreMenu({
                       marginRight: 1.5,
                     }}
                   />
-                  {cat}
+                  {!isMobile ? cat : cat.toUpperCase()}
                 </Typography>
               ))}
             </Box>
@@ -132,12 +152,15 @@ export default function MoreMenu({
             sx={{
               borderTop: "1px solid #333",
               background: "#2e2e42",
-              display: "flex",
               justifyContent: { xs: "flex-start", sm: "space-around" },
               alignItems: "center",
               padding: "15px 0",
               px: { xs: 0, sm: 60 },
               flexWrap: "wrap",
+              display: {
+                xs: 'none',
+                md: 'flex'
+              }
             }}
           >
             {bottomMenuImageUrls.map((item, index) => (
@@ -161,6 +184,29 @@ export default function MoreMenu({
                 />
               </Box>
             ))}
+          </Box>
+          <Box sx={{
+            display: {
+              xs: 'flex',
+              md: 'none'
+            },
+            
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: 2,
+          
+          
+          }}>
+            <Divider sx={{
+              borderColor: '#eee',
+              borderWidth: 1,
+              width: '50%',
+              display: 'flex',
+              justifyContent: 'center',
+              margin: '0 auto'
+            }} />
+            <Footer />
           </Box>
         </Box>
       </Fade>
